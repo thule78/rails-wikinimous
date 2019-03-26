@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+  <title>Article</title>
+</head>
+<body>
+  <div class="container">
+    <div class="d-flex p-2  justify-content-between bd-highlight">
+      <div class="home">
+        <%= link_to "Home", articles_path, class: "btn btn-light"%>
+      </div>
+      <div class="new">
+        <%= link_to "New Article", new_article_path, class: "btn btn-light" %>
+      </div>
+
+    </div>
+    <div class="wrap">
+      <div class="title border-bottom">
+        <h3> <%= @article.title%></h3>
+      <%= link_to raw('<i class="fas fa-pencil-alt"></i>'), edit_article_path %>
+      <%= link_to raw('<i class="fas fa-trash-alt"></i>'), article_path(@article), method: :delete, data: { confirm: "do you want to delete #{@article.title}?" } %>
+      </div>
+
+      <p><%= @article.content%></p>
+    </div>
+  </div>
+</body>
+</html>
